@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Watson Conversation";
+}
+
+<style>
+    .chatWindow {
+        width:50%;
+        height:400px;
+        background-color:#8da1d6;
+        padding:10px;
+    }
+    .actionsWindow{
+        width:50%;
+        height:400px;
+        background-color:#e8ffb4;
+        float:right;
+    }
+    .chatElement{
+        background-color:#DDD;
+        margin:10px;
+        padding:10px;
+    }
+    .chatTitleWatson {
+        font-weight:bold;
+        color:#f00;
+        text-align:right;
+    }
+    .chatTitleUser {
+        font-weight:bold;
+        color:#002ffe;
+        text-align:left;
+    }
+    .chatTextWatson{
+        text-align:right;
+    }
+    .chatTextUser{
+        text-align:left;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1>Watson Conversation</h1>
+</div>
+
+<div class="row">
+    
+    <div class="actionsWindow">
+        Pasos para usar esta aplicación:
+        <ul>
+            <li>Importar workspace en watson conversation. <a href="~/Content/workspace.json">Descargar workspace</a> <a href="https://www.ibm.com/watson/developercloud/doc/conversation/create-workspace.html#importing-exporting-and-copying-workspaces">Instrucciones</a></li>
+            <li>Configurar credenciales en web.config (wconversation_username, wconversation_password)</li>
+            <li>Configurar workspace ID en web.config (wconversation_workspaceID)</li>
+            <li>En el controllador ConversationController se realiza el llamado al cliente de watson conversation desarrollado como ejemplo</li>
+            <li>La clase WatsonConversationClient es el cliente de ejemplo, el cual contiene dos funciones muy similares con la única diferencia que una se utiliza para la primera llamada al servicio (ConverseWatsonInitial) y la segunda se utiliza para el resto de las llamadas (ConverseWatson).</li>
+
+        </ul>
+    </div>
+
+    <div class="chatWindow">
+        <div class="chatElement">
+            <div class="chatTitleWatson">Watson</div>
+            <div class="chatTextWatson">Bienvenido</div>
+        </div>
+        <div class="chatElement">
+            <div class="chatTitleUser">User</div>
+            <div class="chatTextUser">Quiero reservar un vuelo, ¿puedes ayudarme?</div>
+        </div>
+        <div class="chatElement">
+            <div class="chatTitleWatson">Watson</div>
+            <div class="chatTextWatson">@ViewBag.wc_Response</div>
+        </div>
+    </div>
+
+</div>
